@@ -30,10 +30,10 @@ for(var i = 0; i < howLong; i++ ){
     password = password + answers[random];
 } return password;
 }
-// parseInt changes the users reply from a string into a number, prompt will display the question with a box for the user to type their into. isNaN determines if the users reply is a number or a string if it is a number it will return true if it is a string it will return false. The if portion of the function determines if the user supplied a number less then 128 and longer then 8 characters and supplied a number. If they did not they will be prompted to try again with alert.
+// prompt will display the question with a box for the user to type their into. isNaN determines if the users reply is a number or a string if it is a number it will return true if it is a string it will return false. The if portion of the function determines if the user supplied a number less then 128 and longer then 8 characters and supplied a number. If they did not they will be prompted to try again with alert.
 function questions(){
   answers = []; //resets answers to be empty each time it is used 
-  howLong = parseInt(prompt("How many characters do you want in your password? (Choose between 8 -128)"));
+  howLong = prompt("How many characters do you want in your password? (Choose between 8 -128)");
   if(isNaN(howLong) || howLong > 128 || howLong < 8 ) {
     alert("The length needs to be between 8 and 128 digits. Please try again.");
     return false; //tells the function to stop running if there is a false.
