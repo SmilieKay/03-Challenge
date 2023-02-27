@@ -6,13 +6,16 @@ var special = ["!","@","#","$","%","^","&","*","-","+","=","?","/","<",">","~"];
 var lowerCase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 var upperCase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 
-var generateBtn = document.querySelector("#generate");
+var generateBtn = document.querySelector("#generate"); //connects it to the id generate in the html button 
 generateBtn.addEventListener("click", writePassword);
 // Write password to the #password input
 function writePassword() {
-  var confirm = questions(); // is a boolean either true or false
+  var questionAnswers = questions(); // is a boolean either true or false
   var passwordText = document.querySelector("#password");
-  if(confirm){
+  if( answers.length === 0) { 
+    alert("You must choose at least one. Please try again.");
+  }
+  else if(questionAnswers ){
     var password2 = generatePassword();
     passwordText.value = password2;}
   else { passwordText.value = "";}
