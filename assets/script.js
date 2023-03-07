@@ -12,7 +12,12 @@ generateBtn.addEventListener("click", writePassword);
 function writePassword() {
   var questionAnswers = questions(); // is a boolean either true or false
   var passwordText = document.querySelector("#password");
-  if( answers.length === 0) { 
+  howLong = prompt("How many characters do you want in your password? (Choose between 8 -128)");
+  if(isNaN(howLong) || howLong > 128 || howLong < 8 ) {
+    alert("The length needs to be between 8 and 128 digits. Please try again.");
+    return false; //tells the function to stop running if there is a false.
+  }
+ else if( answers.length === 0) { 
     alert("You must choose at least one. Please try again.");
   }
   else if(questionAnswers ){
@@ -36,11 +41,7 @@ for(var i = 0; i < howLong; i++ ){
 // prompt will display the question with a box for the user to type their into. isNaN determines if the users reply is a number or a string if it is a number it will return true if it is a string it will return false. The if portion of the function determines if the user supplied a number less then 128 and longer then 8 characters and supplied a number. If they did not they will be prompted to try again with alert.
 function questions(){
   answers = []; //resets answers to be empty each time it is used 
-  howLong = prompt("How many characters do you want in your password? (Choose between 8 -128)");
-  if(isNaN(howLong) || howLong > 128 || howLong < 8 ) {
-    alert("The length needs to be between 8 and 128 digits. Please try again.");
-    return false; //tells the function to stop running if there is a false.
-  }
+ 
    if (confirm("Would you like special characters in your password?"))/* a message with a OK or Cancel button */
    {answers = answers.concat(special);}//if the user selects OK then .concat combines the special array with answers
    if (confirm("Would you like numbers in your password?"))
