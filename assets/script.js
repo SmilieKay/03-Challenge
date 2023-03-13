@@ -7,7 +7,10 @@ var lowerCase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p"
 var upperCase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 
 var generateBtn = document.querySelector("#generate"); //connects it to the id generate in the html button 
+var copyBtn = document.querySelector("#copy");
 generateBtn.addEventListener("click", writePassword);
+copyBtn.addEventListener("click", copyPassword);
+
 // Write password to the #password input
 function writePassword() {
   var questionAnswers = questions(); // is a boolean either true or false
@@ -26,7 +29,13 @@ function writePassword() {
   else { passwordText.value = "";}
 }
   
-  
+function copyPassword() {
+  var passwordText = document.querySelector("#password");
+  passwordText.select();
+  document.execCommand("copy");
+  alert("Password copied to clipboard!");
+}
+
 
 // password starts as empty i starts at 0 and increases by one, as long as i is lower then the amount of howLong the for loop will run. 
 // Math.random gives a random number including decimals and is multiplied by the length of answers then Math.floor makes that number a whole number. That is returned as the value of password which then becomes the value of password2
@@ -54,4 +63,7 @@ function questions(){
 }
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+
+
 
